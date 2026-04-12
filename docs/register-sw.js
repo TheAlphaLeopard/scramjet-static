@@ -1,17 +1,10 @@
 "use strict";
 const stockSW = "./sw.js";
 
-/**
- * List of hostnames that are allowed to run serviceworkers on http://
- */
 const swAllowedHostnames = ["localhost", "127.0.0.1"];
 
-/**
- * Global util
- * Used in 404.html and index.html
- */
 async function registerSW() {
-	if (!navigator.serviceWorker) {
+	if (!("serviceWorker" in navigator)) {
 		if (
 			location.protocol !== "https:" &&
 			!swAllowedHostnames.includes(location.hostname)
@@ -21,5 +14,10 @@ async function registerSW() {
 		throw new Error("Your browser doesn't support service workers.");
 	}
 
-	await navigator.serviceWorker.register(stockSW);
+	const registration = await navigator.serviceWorker.register(stockSW, {
+		scope: "./",
+	});
+
+	await navigator.serviceWorker.ready;
+	return registration;
 }

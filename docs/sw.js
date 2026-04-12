@@ -1,4 +1,8 @@
-importScripts("/scram/scramjet.all.js");
+importScripts("config.js");
+importScripts(
+	SCRAMJET_CONFIG?.scramjetFiles?.all ||
+	"https://cdn.jsdelivr.net/npm/@mercuryworkshop/scramjet@2.0.0-alpha/dist/scramjet.all.js"
+);
 
 const { ScramjetServiceWorker } = $scramjetLoadWorker();
 const scramjet = new ScramjetServiceWorker();
