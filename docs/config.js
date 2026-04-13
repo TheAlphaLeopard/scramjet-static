@@ -1,8 +1,9 @@
+const basePath = new URL("./baremux/worker.js", self.location.href).href;
 self.SCRAMJET_CONFIG = {
-	wispUrl: null,
+	wispUrl: "wss://truffled.lol/wisp/",
 	transports: {
 		libcurl: "https://cdn.jsdelivr.net/npm/@mercuryworkshop/libcurl-transport@1.5.2/dist/index.mjs",
-		bareMuxWorker: "https://cdn.jsdelivr.net/npm/@mercuryworkshop/bare-mux@2.1.7/dist/worker.js",
+		bareMuxWorker: basePath,
 	},
 	scramjetFiles: {
 		all: "https://cdn.jsdelivr.net/npm/@mercuryworkshop/scramjet@2.0.0-alpha/dist/scramjet.all.js",

@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" href="favicon.ico" />
 		<script src="config.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@mercuryworkshop/scramjet@2.0.0-alpha/dist/scramjet.all.js" defer></script>
-		<script src="https://cdn.jsdelivr.net/npm/@mercuryworkshop/bare-mux@2.1.7/dist/index.js" defer></script>
+		<script src="baremux/index.js" defer></script>
 		<link rel="stylesheet" href="index.css" />
 		<script src="register-sw.js" defer></script>
 		<script src="search.js" defer></script>
@@ -42,6 +42,10 @@
 		<div class="desc left-margin">
 			<p id="sj-error"></p>
 			<pre id="sj-error-code"></pre>
+			<div id="sj-loading" style="display: none;">
+				<p>Loading proxy frame...</p>
+				<progress id="sj-progress" value="0" max="100"></progress>
+			</div>
 		</div>
 		<footer>
 			<div>
